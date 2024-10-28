@@ -1,0 +1,216 @@
+file 8752 1717769213                                            
+version 3
+run _ipv4-0-20240607-17:05:56-31242
+attr configname _ipv4
+attr datetime 20240607-17:05:56
+attr datetimef 20240607-170556
+attr experiment _ipv4
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network UdpClientServer
+attr processid 31242
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../images
+config **.hasIpv4 true
+config **.hasIpv6 false
+config **.hasGn false
+config network UdpClientServer
+config total-stack 7MiB
+config description (abstract)
+config **.crcMode "\"computed\""
+config **.client*.numApps 1
+config **.client*.app[0].typename Vehicle
+config **.client*.app[0].localPort -1
+config **.client*.app[0].sendInterval 1s
+config **.client*.app[0].messageLength 1000B
+config **.client*.app[0].stopTime 25s
+config **.client*.app[0].destAddresses "\"server\""
+config **.client*.app[0].destPort 1000
+config **.server*.numApps 1
+config **.server*.app[0].typename AS
+config **.server*.app[0].localPort 1000
+config **.server*.app[0].vehicles "\"vehicle_data.csv\""
+config **.server*.app[0].rsus "\"rsu_data.csv\""
+config **.ppp[*].queue.typename DropTailQueue
+config **.ppp[*].queue.packetCapacity 10
+
+vector 0 UdpClientServer.client1.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 1 UdpClientServer.client1.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 2 UdpClientServer.client1.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+vector 3 UdpClientServer.client1.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 UdpClientServer.client1.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 5 UdpClientServer.client1.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 6 UdpClientServer.server.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 7 UdpClientServer.server.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 8 UdpClientServer.server.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+vector 9 UdpClientServer.server.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 10 UdpClientServer.server.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 11 UdpClientServer.server.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 12 UdpClientServer.unavserver.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 13 UdpClientServer.unavserver.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 14 UdpClientServer.unavserver.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+vector 15 UdpClientServer.unavserver.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 16 UdpClientServer.unavserver.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 17 UdpClientServer.unavserver.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 18 UdpClientServer.unavserver2.ppp[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 19 UdpClientServer.unavserver2.ppp[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 20 UdpClientServer.unavserver2.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "tx state"
+vector 21 UdpClientServer.unavserver2.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 22 UdpClientServer.unavserver2.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 23 UdpClientServer.unavserver2.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 24 UdpClientServer.client1.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 25 UdpClientServer.client1.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+0	8253 40 0 0 0 0 5 0 0 0 0
+1	8293 40 0 0 0 0 5 0 0 0 0
+2	8333 8 0 0 0 0 1 0 0 0 0
+3	8341 8 0 0 0 0 1 0 0 0 0
+4	8349 8 0 0 0 0 1 0 0 0 0
+5	8357 8 0 0 0 0 1 0 0 0 0
+6	8365 40 0 0 0 0 5 0 0 0 0
+7	8405 40 0 0 0 0 5 0 0 0 0
+8	8445 8 0 0 0 0 1 0 0 0 0
+9	8453 8 0 0 0 0 1 0 0 0 0
+10	8461 9 0 0 0 0 1 0 0 0 0
+11	8470 9 0 0 0 0 1 0 0 0 0
+12	8479 45 0 0 0 0 5 0 0 0 0
+13	8524 45 0 0 0 0 5 0 0 0 0
+14	8569 9 0 0 0 0 1 0 0 0 0
+15	8578 9 0 0 0 0 1 0 0 0 0
+16	8587 9 0 0 0 0 1 0 0 0 0
+17	8596 9 0 0 0 0 1 0 0 0 0
+18	8605 45 0 0 0 0 5 0 0 0 0
+19	8650 45 0 0 0 0 5 0 0 0 0
+20	8695 9 0 0 0 0 1 0 0 0 0
+21	8704 9 0 0 0 0 1 0 0 0 0
+22	8713 9 0 0 0 0 1 0 0 0 0
+23	8722 9 0 0 0 0 1 0 0 0 0
+24	8731 10 3 3 1 1 1 40 40 40 1600
+25	8741 10 5 5 1 1 1 48 48 48 2304
+
