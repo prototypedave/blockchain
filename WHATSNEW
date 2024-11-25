@@ -1,0 +1,14 @@
+What's New
+
+Version v2 Nov 2024
+--------------------------
+Added:
+- Secret key generation during registration phase
+
+Fixed:
+- Resolved handover process of the vehicles and RSU
+
+Changed:
+- Improved openssl functions with class to hold the functions and prevent repetion
+- Reduced number of messages in different phases
+- Changed to one server instead of 3 for improved functionality and reduced overhead messages

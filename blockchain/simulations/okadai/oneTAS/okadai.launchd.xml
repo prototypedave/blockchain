@@ -1,6 +1,0 @@
-<launch>
-  <copy file="okadai.net.xml"/>
-  <copy file="okadai.rou.xml"/>
-  <copy file="okadai.sumocfg" type="config"/>
-  <copy file="gui-settings.xml"/>
-</launch>
