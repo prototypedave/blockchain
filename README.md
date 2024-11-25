@@ -22,6 +22,7 @@ The architecture includes the following components:
 2. **Okayama**
 ![okayama network](doc/images/okayama.png)
 
+
 ## Workflow
 1.  Vehicles and RSUs register with the Trusted Authority Server (TAS).
 2.  Vehicles initiate authentication via Kerberos, obtaining a ticket from the AS and TGS.
