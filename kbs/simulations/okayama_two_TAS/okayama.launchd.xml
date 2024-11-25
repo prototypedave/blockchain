@@ -1,0 +1,6 @@
+<launch>
+  <copy file="okayama.net.xml"/>
+  <copy file="okayama.rou.xml"/>
+  <copy file="okayama.sumocfg" type="config"/>
+  <copy file="gui-settings.xml"/>
+</launch>

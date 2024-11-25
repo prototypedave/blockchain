@@ -12,3 +12,4 @@ Changed:
 - Improved openssl functions with class to hold the functions and prevent repetion
 - Reduced number of messages in different phases
 - Changed to one server instead of 3 for improved functionality and reduced overhead messages
+- Name of the program to kbc (Kerberos block chain system)

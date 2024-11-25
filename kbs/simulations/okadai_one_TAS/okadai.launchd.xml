@@ -1,0 +1,6 @@
+<launch>
+  <copy file="okadai2iterate.net.xml"/>
+  <copy file="okadai2iterate.rou.xml"/>
+  <copy file="okadai2iterate.sumo.cfg" type="config"/>
+  <copy file="gui-settings.xml"/>
+</launch>
