@@ -15,6 +15,13 @@ The architecture includes the following components:
 3.  **Road-Side Units (RSUs)**: Infrastructure that facilitates vehicle communications and        authentication.
 4.  **Vehicles (On-Board Units, OBUs)**: Mobile nodes in the network that authenticate via Kerberos and the blockchain.
 
+## Topology
+1. **Okadai Network Topology**
+![okadai network](doc/images/topology_one.png)
+
+2. **Okayama Network Topology**
+![okayama network](doc/images/topology_two.png)
+
 ## Workflow
 1.  Vehicles and RSUs register with the Trusted Authority Server (TAS).
 2.  Vehicles initiate authentication via Kerberos, obtaining a ticket from the AS and TGS.
